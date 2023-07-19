@@ -7,4 +7,5 @@ export const optionsBranch = [
   { id: 6, label: "วิศวกรรมสิ่งแวดล้อม", color: "#f77ebf" },
   { id: 7, label: "วิศวกรรมระบบสมองกลฝังตัว", color: "#fecca0" },
   { id: 8, label: "วิศวกรรมวัสดุ", color: "#dbd9b9" },
+  { id: 99, label: "ไม่เลือก", color: "#FF0000" },
 ];

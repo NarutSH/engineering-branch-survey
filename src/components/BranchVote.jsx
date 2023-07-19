@@ -1,21 +1,19 @@
-import { useState } from "react";
 import Box from "@mui/joy/Box";
 import FormLabel from "@mui/joy/FormLabel";
 import Radio from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
 import Sheet from "@mui/joy/Sheet";
 import { optionsBranch } from "../data/constance";
-import { Button, Stack } from "@mui/material";
+import { Button, Stack, TextField } from "@mui/material";
 
 export default function BranchVote({
   voteValue,
   setVoteValue,
-  setDrawerVoteOpen,
+  onHandleSubmit,
+  setPointValue,
+  pointValue,
 }) {
-  const onHandleSubmit = async () => {
-    setDrawerVoteOpen(false);
-    window.localStorage.setItem("isVoted", true);
-  };
+  const user = window.localStorage.getItem("user");
 
   return (
     <Box>
@@ -80,6 +78,20 @@ export default function BranchVote({
       </RadioGroup>
 
       <Stack direction="row" justifyContent="center" mt={2}>
+        {user === "admin" && (
+          <TextField
+            type="number"
+            onKeyDown={(e) => {
+              if (e.key === "." || e.key === "e") {
+                e.preventDefault();
+              }
+            }}
+            onChange={(ev) => {
+              setPointValue(ev.target.value);
+            }}
+            value={pointValue}
+          />
+        )}
         <Button
           variant="contained"
           disabled={!voteValue}

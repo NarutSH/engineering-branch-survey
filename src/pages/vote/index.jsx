@@ -1,12 +1,7 @@
 import React from "react";
-import BranchVote from "../../components/BranchVote";
 
 const VotePage = () => {
-  return (
-    <div>
-      <BranchVote />
-    </div>
-  );
+  return <div>VotePage</div>;
 };
 
 export default VotePage;
